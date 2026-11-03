@@ -1,0 +1,85 @@
+{
+  "seed": 20261104,
+  "sessions_total": 320,
+  "sessions_scored": 260,
+  "price_expansion_start_to_end": 8.6,
+  "summary": {
+    "time": {
+      "bars_per_session_mean": 9.0,
+      "bars_per_session_sd": 0.0,
+      "kurt_interior_pooled": 0.64,
+      "kurt_interior_holdout": 0.84,
+      "kurt_full_pooled": 0.96,
+      "sess_kurt_interior_mean": -1.36,
+      "sqret_ac1_mean_of_sessions": -0.125,
+      "next_bar_accuracy_prevsign": 0.5029
+    },
+    "diurnal": {
+      "bars_per_session_mean": 9.0,
+      "bars_per_session_sd": 0.0,
+      "kurt_interior_pooled": 0.41,
+      "kurt_interior_holdout": 0.39,
+      "kurt_full_pooled": 0.42,
+      "sess_kurt_interior_mean": -1.37,
+      "sqret_ac1_mean_of_sessions": -0.149,
+      "next_bar_accuracy_prevsign": 0.4995
+    },
+    "vol_static": {
+      "bars_per_session_mean": 5.44,
+      "bars_per_session_sd": 1.49,
+      "kurt_interior_pooled": 0.19,
+      "kurt_interior_holdout": 0.09,
+      "kurt_full_pooled": 0.26,
+      "sess_kurt_interior_mean": -1.9,
+      "sqret_ac1_mean_of_sessions": -0.226,
+      "next_bar_accuracy_prevsign": 0.5078
+    },
+    "vol_roll": {
+      "bars_per_session_mean": 4.0,
+      "bars_per_session_sd": 2.21,
+      "kurt_interior_pooled": 0.75,
+      "kurt_interior_holdout": 0.1,
+      "kurt_full_pooled": 0.89,
+      "sess_kurt_interior_mean": -1.91,
+      "sqret_ac1_mean_of_sessions": -0.271,
+      "next_bar_accuracy_prevsign": 0.5058
+    },
+    "dol_static": {
+      "bars_per_session_mean": 13.59,
+      "bars_per_session_sd": 6.82,
+      "kurt_interior_pooled": 0.53,
+      "kurt_interior_holdout": 0.18,
+      "kurt_full_pooled": 0.74,
+      "sess_kurt_interior_mean": -1.1,
+      "sqret_ac1_mean_of_sessions": -0.101,
+      "next_bar_accuracy_prevsign": 0.4919
+    },
+    "dol_roll": {
+      "bars_per_session_mean": 4.79,
+      "bars_per_session_sd": 2.84,
+      "kurt_interior_pooled": 1.02,
+      "kurt_interior_holdout": 0.26,
+      "kurt_full_pooled": 1.22,
+      "sess_kurt_interior_mean": -1.74,
+      "sqret_ac1_mean_of_sessions": -0.189,
+      "next_bar_accuracy_prevsign": 0.4858
+    }
+  },
+  "paired_contrasts_interior_kurt": {
+    "vol_roll_minus_diurnal": {
+      "mean_delta_kurt": -0.54,
+      "t": -9.36,
+      "p": 1.529910050577547e-15
+    },
+    "dol_roll_minus_diurnal": {
+      "mean_delta_kurt": -0.38,
+      "t": -5.73,
+      "p": 6.130612474436936e-08
+    },
+    "time_minus_diurnal": {
+      "mean_delta_kurt": 0.01,
+      "t": 0.68,
+      "p": 0.4975834105649519
+    }
+  }
+}

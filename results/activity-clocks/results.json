@@ -1,0 +1,91 @@
+{
+  "seed": 20261104,
+  "sessions_total": 320,
+  "sessions_scored": 260,
+  "price_expansion_start_to_end": 8.6,
+  "summary": {
+    "time": {
+      "bars_per_session_mean": 9.0,
+      "bars_per_session_sd": 0.0,
+      "kurt_interior_pooled": 8.73,
+      "kurt_interior_holdout": 12.64,
+      "kurt_full_pooled": 6.4,
+      "sess_kurt_interior_mean": -1.28,
+      "sqret_ac1_mean_of_sessions": -0.084,
+      "sqret_ac1_pooled": 0.049,
+      "next_bar_accuracy_prevsign": 0.5096
+    },
+    "diurnal": {
+      "bars_per_session_mean": 9.0,
+      "bars_per_session_sd": 0.0,
+      "kurt_interior_pooled": 6.83,
+      "kurt_interior_holdout": 8.18,
+      "kurt_full_pooled": 6.06,
+      "sess_kurt_interior_mean": -1.29,
+      "sqret_ac1_mean_of_sessions": -0.112,
+      "sqret_ac1_pooled": 0.052,
+      "next_bar_accuracy_prevsign": 0.4938
+    },
+    "vol_static": {
+      "bars_per_session_mean": 10.27,
+      "bars_per_session_sd": 3.45,
+      "kurt_interior_pooled": 0.46,
+      "kurt_interior_holdout": 0.47,
+      "kurt_full_pooled": 0.62,
+      "sess_kurt_interior_mean": -1.26,
+      "sqret_ac1_mean_of_sessions": -0.125,
+      "sqret_ac1_pooled": 0.082,
+      "next_bar_accuracy_prevsign": 0.4992
+    },
+    "vol_roll": {
+      "bars_per_session_mean": 9.4,
+      "bars_per_session_sd": 3.2,
+      "kurt_interior_pooled": 0.69,
+      "kurt_interior_holdout": 0.41,
+      "kurt_full_pooled": 0.77,
+      "sess_kurt_interior_mean": -1.42,
+      "sqret_ac1_mean_of_sessions": -0.134,
+      "sqret_ac1_pooled": 0.073,
+      "next_bar_accuracy_prevsign": 0.5018
+    },
+    "dol_static": {
+      "bars_per_session_mean": 30.41,
+      "bars_per_session_sd": 18.29,
+      "kurt_interior_pooled": 1.98,
+      "kurt_interior_holdout": 2.71,
+      "kurt_full_pooled": 1.92,
+      "sess_kurt_interior_mean": -0.4,
+      "sqret_ac1_mean_of_sessions": -0.019,
+      "sqret_ac1_pooled": 0.179,
+      "next_bar_accuracy_prevsign": 0.4932
+    },
+    "dol_roll": {
+      "bars_per_session_mean": 11.28,
+      "bars_per_session_sd": 4.67,
+      "kurt_interior_pooled": 0.55,
+      "kurt_interior_holdout": 0.56,
+      "kurt_full_pooled": 0.64,
+      "sess_kurt_interior_mean": -1.16,
+      "sqret_ac1_mean_of_sessions": -0.11,
+      "sqret_ac1_pooled": 0.105,
+      "next_bar_accuracy_prevsign": 0.4968
+    }
+  },
+  "paired_contrasts_interior_kurt": {
+    "vol_roll_minus_diurnal": {
+      "mean_delta_kurt": -0.13,
+      "t": -2.87,
+      "p": 0.004396742747407583
+    },
+    "dol_roll_minus_diurnal": {
+      "mean_delta_kurt": 0.13,
+      "t": 2.39,
+      "p": 0.017797073742139204
+    },
+    "time_minus_diurnal": {
+      "mean_delta_kurt": 0.01,
+      "t": 0.45,
+      "p": 0.6538413719071278
+    }
+  }
+}
