@@ -1,0 +1,16 @@
+Per-cell decomposition diagnostic for Arm A, re-executed for this package from
+code/surface-sampling/percell_diag.py (same frozen population, seed 20261103,
+R=25 draws/day, 200 days; cells numbered 1-12 row-major over the 4x3
+moneyness x maturity grid; full table in percell.csv).
+Per-cell RMSEs vary by a few bps across RNG streams; draw counts and all
+headline values reproduce the review-stage diagnostic exactly.
+
+alpha=0.60  PPS:    draws/cell min 9.9, median 29.5, max 59.0; thinnest cell 9.9 draws -> LW RMSE 152 bps; fattest cell 59.0 draws -> 15 bps
+alpha=0.60  EqCell: draws/cell min 23.6, median 25.5, max 48.7; thinnest cell 23.6 draws -> LW RMSE 38 bps
+alpha=0.25  PPS:    thinnest cell 3.2 draws -> LW RMSE 408 bps
+alpha=0.25  EqCell: thinnest cell 8.8 draws -> LW RMSE 192 bps
+
+Reading: under global PPS the thinnest cells receive about 1/6 the draws of the
+fattest and carry roughly 10x their per-cell LW error; EqCell compresses both
+spreads. Per-cell sample starvation is the mechanism behind PPS losing its own
+liquidity-weighted target to EqCell in this population.
