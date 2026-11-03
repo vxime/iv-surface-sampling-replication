@@ -142,3 +142,39 @@ LW target, PPS ratios 0.86/0.72/0.59/0.51 vs EqCell 0.52/0.47/0.40/0.35 across a
 ordering is unchanged, so the coupling does not drive iv-c14. (EW-side ratios shift substantially
 under constant noise, as expected when within-cell variance is reshaped; the robustness claim is
 scoped to the LW ordering only.)
+
+
+## Review addendum 3 (external reviews, 2026-11-03)
+
+Adjudication of the ChatGPT / Gemini / hy4 external reviews (full text in
+reviews/external-review-adjudication.md). New computations, all on the frozen
+populations with aggregates re-verified identical to results.json:
+
+- Paired whole-day cluster bootstrap, EqCell vs PPS (day-level RMSE saved by
+  experiments/surface-sampling/arm_a_paired.py; output
+  paired_bootstrap_eqcell_pps.json): LW ratios 0.886 [0.855, 0.917] /
+  0.904 [0.868, 0.942] / 0.927 [0.886, 0.966] / 0.841 [0.804, 0.880] for
+  alpha 0.25/0.40/0.60/0.80 — all CIs below 1. EW ratios 0.437/0.368/0.301/
+  0.220, CIs far below 1.
+- Arm B extras (experiments/activity-clocks/arm_b_v2_extras.py; output
+  arm_b_extras.json): session-cluster bootstrap CIs for pooled interior
+  excess kurtosis — time 8.75 [2.45, 16.52], diurnal 6.84 [3.02, 11.22],
+  vol_roll 0.69 [0.15, 1.54], dol_roll 0.55 [0.27, 0.81]; paired pooled
+  differences vs diurnal: vol -6.14 [-10.59, -2.50], dol -6.29 [-10.61,
+  -2.46]. Session-level paired deltas with bootstrap CIs: vol -0.13 [-0.22,
+  -0.04] (n=250), dol +0.13 [+0.02, +0.23] (n=255). Bar-rate segment means
+  (first 20% / mid 60% / last 20% of scored sessions): vol_roll 10.10 / 9.06
+  / 9.73 (CV 0.34, slope -0.27/100 sessions), dol_roll 12.33 / 10.83 / 11.58
+  (CV 0.41, slope -0.35), dol_static 14.96 / 28.08 / 52.83 (slope +17.4).
+- Population gradient (experiments/surface-sampling/population_gradient.json):
+  median fattest/thinnest cell total-weight ratio 21.8x (p25-p75 16.9-30.7);
+  within-cell top-5 weight share median 0.56 (as before).
+- Verified against a reviewer query: under the LW target all designs are
+  scored with the HT-ratio estimator computed from the same sample
+  (hajek_cell_est returns both estimators); no estimator mismatch exists.
+- Verified against a reviewer query: the paper's cross-sectional design uses
+  R = 3 Monte Carlo draws per day (paper text, section 3); the draft's
+  parenthetical is correct.
+- Recorded honestly: the Arm B v1 discard used validity diagnostics applied
+  before any clock verdict; numeric acceptance gates (e.g. a bar-rate band)
+  were NOT pre-registered as thresholds and are not retroactively claimed.

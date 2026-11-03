@@ -1,0 +1,87 @@
+{
+ "time": {
+  "pooled_kurt": 8.75,
+  "ci95": [
+   2.45,
+   16.52
+  ]
+ },
+ "diurnal": {
+  "pooled_kurt": 6.84,
+  "ci95": [
+   3.02,
+   11.22
+  ]
+ },
+ "vol_roll": {
+  "pooled_kurt": 0.69,
+  "ci95": [
+   0.15,
+   1.54
+  ]
+ },
+ "dol_roll": {
+  "pooled_kurt": 0.55,
+  "ci95": [
+   0.27,
+   0.81
+  ]
+ },
+ "vol_roll_minus_diurnal": {
+  "delta": -6.14,
+  "ci95": [
+   -10.59,
+   -2.5
+  ]
+ },
+ "dol_roll_minus_diurnal": {
+  "delta": -6.29,
+  "ci95": [
+   -10.61,
+   -2.46
+  ]
+ },
+ "vol_roll_daily_delta": {
+  "mean": -0.13,
+  "ci95": [
+   -0.22,
+   -0.04
+  ],
+  "n": 250
+ },
+ "dol_roll_daily_delta": {
+  "mean": 0.13,
+  "ci95": [
+   0.02,
+   0.23
+  ],
+  "n": 255
+ },
+ "vol_roll_barrate": {
+  "seg_means_first20_mid60_last20": [
+   10.1,
+   9.06,
+   9.73
+  ],
+  "cv": 0.34,
+  "slope_per_100_sessions": -0.27
+ },
+ "dol_roll_barrate": {
+  "seg_means_first20_mid60_last20": [
+   12.33,
+   10.83,
+   11.58
+  ],
+  "cv": 0.41,
+  "slope_per_100_sessions": -0.35
+ },
+ "dol_static_barrate": {
+  "seg_means_first20_mid60_last20": [
+   14.96,
+   28.08,
+   52.83
+  ],
+  "cv": 0.6,
+  "slope_per_100_sessions": 17.4
+ }
+}

@@ -81,6 +81,48 @@ Seeds are fixed in the scripts (Arm A: 20261103; Arm B: 20261104). Ratio
 tables reproduce exactly; Monte Carlo diagnostics (per-cell RMSEs) vary by a
 few bps across RNG streams.
 
+
+## Generator parameters
+
+Arm A (option chain; `code/surface-sampling/arm_a.py`, seed 20261103,
+R = 25 draws/day):
+
+| Component | Specification |
+| --- | --- |
+| Surface | IV(m, tau) = L + a*(1-m) + b*(1-m)^2 + d*log(tau/30); L AR(1) around 0.34 (phi 0.85, sd 0.045); a ~ N(-0.55, 0.10); b ~ N(1.6, 0.35); d ~ N(-0.05, 0.015) |
+| Contracts/day | lognormal, median 550 (sd 0.35), clipped [300, 900]; 200 days, 111,573 total |
+| Moneyness / DTE | m = 1 + 0.115 * t4, clipped [0.60, 1.40); DTE lognormal median 48 (sd 0.75), clipped [7, 365] |
+| Volume | log-mean 2.6 - 3.2*|m-1| - 0.004*DTE, sd 0.95 |
+| Relative spread | 0.012 + 0.30*|m-1|^1.5 + 0.25*exp(-vol/40) + N(0, 0.006), clipped [0.002, 0.60] |
+| Size variable | w = (vol + 1) / (relspread + 1e-4) (the paper's printed formula) |
+| Observation noise | sd = 0.30 * relspread (robustness variant: constant 0.0673, mean-matched) |
+| Population anchors | within-cell top-5 weight share median 0.56; fattest/thinnest cell total-weight ratio median 21.8x (`results/surface-sampling/population_gradient.json`) |
+
+Arm B (intraday; `code/activity-clocks/arm_b_v2.py`, seed 20261104,
+320 sessions x 390 minutes, first 60 for calibration):
+
+| Component | Specification |
+| --- | --- |
+| Returns | r_k = seas_k * sqrt(h_k) * eps_k, eps t5 (standardised); conditional mean zero |
+| Variance | GARCH(1,1) on deseasonalised returns: h = sig_day^2*(1-0.06-0.92) + 0.06*r~^2 + 0.92*h; sig_day log-AR(1) around 0.011 |
+| Seasonality | U-shape: 1 + 0.85*exp(-k/55) + 0.85*exp(-(390-k)/55), normalised |
+| Jumps | p = 0.004 per minute, size N(0, 4*sig_day*seas) |
+| Volume | day total lognormal(3e7, 0.25); per minute: seas^1.4 * exp(0.9*min(|z|, 3)) * lognormal(0, 0.55) |
+| Price level | +log(8)/320 drift per session (8.6x start-to-end expansion) |
+| Clock target | 8.75 bars/session (pre-set for this population; the paper's panel constant is 8000/967 = 8.273) |
+
+## External review addendum
+
+After external review (2026-11-03), three computations were added on the same
+frozen populations (aggregates re-verified identical to the original
+`results.json` files): the paired EqCell-vs-PPS bootstrap
+(`results/surface-sampling/paired_bootstrap_eqcell_pps.json` — LW ratios
+0.84–0.93, all 95% CIs below 1), Arm B kurtosis intervals and bar-rate
+segment stability (`results/activity-clocks/arm_b_extras.json`), and the
+population gradient anchors above. The article's mechanism claim is a level
+mismatch: PPS aligns inclusion probabilities per contract, its budget is
+allocated globally, and the paper's Eq. 9 scores cells equally.
+
 ## Boundaries
 
 Single run per arm, our parameterization, our synthetic populations. The

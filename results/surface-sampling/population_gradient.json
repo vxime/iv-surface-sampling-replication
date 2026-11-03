@@ -1,0 +1,8 @@
+{
+ "cell_total_weight_maxmin_ratio_median": 21.8,
+ "cell_total_weight_maxmin_ratio_p25_p75": [
+  16.9,
+  30.7
+ ],
+ "top5_incell_weight_share_median": 0.56
+}
